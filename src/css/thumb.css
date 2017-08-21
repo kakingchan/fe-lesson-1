@@ -1,0 +1,101 @@
+.thumb {
+    position: relative;
+}
+
+.thumb .part1,
+.thumb .part1::before,
+.thumb .part1::after,
+.thumb .part2,
+.thumb .part2::after,
+.thumb .part3,
+.thumb .part3::after {
+    position: absolute;
+    background-color: #F3C5AD;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*手臂  */
+
+.thumb .part1::before {
+    content: "";
+    left: -185px;
+    top: 50px;
+    width: 200px;
+    height: 200px;
+    border-top: 2px solid #D68A63;
+}
+
+
+/*手掌  */
+
+.thumb .part1 {
+    left: 200px;
+    top: 120px;
+    width: 185px;
+    height: 302px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    border-color: #8C3E15;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+}
+
+
+/*拇指*/
+
+.thumb .part1::after {
+    content: "";
+    top: 8px;
+    left: 10px;
+    width: 150px;
+    height: 76px;
+    transform-origin: -2px 0%;
+    transform: rotate(-60deg);
+    border-top-right-radius: 38px;
+    border-bottom-right-radius: 38px;
+    border-top: 1px solid #B9511B;
+    border-right: 1px solid #B9511B;
+    box-shadow: 0 0 4px 4px #F3C5AD inset;
+    background: linear-gradient(to left, #FAE7DD, #F3C5AD, 25%, #E9B093, #F3C5AD);
+}
+
+
+/* 四指 */
+
+.thumb .part2,
+.thumb .part2::after,
+.thumb .part3,
+.thumb .part3::after {
+    width: 75px;
+    height: 75px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    border: 1px solid #B9511B;
+    border-left: none;
+    box-shadow: 0 0 4px 4px #F3C5AD inset;
+    background: linear-gradient(to left, #FAE7DD, #F3C5AD);
+}
+
+.thumb .part2 {
+    top: 120px;
+    left: 385px;
+}
+
+.thumb .part2::after {
+    content: "";
+    top: 75px;
+    left: 0;
+}
+
+.thumb .part3 {
+    top: 271px;
+    left: 385px;
+}
+
+.thumb .part3::after {
+    content: "";
+    top: 75px;
+    left: 0;
+}
