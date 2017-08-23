@@ -9,26 +9,30 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/thumb.css">
     <script src="assets/jquery.js"></script>
-    <!-- <script src="assets/system.js"></script> -->
-    <script src="https://cdn.bootcss.com/systemjs/0.20.18/system.js"></script>
+    <script src="assets/system.js"></script>
     <script src="js/com.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
-        <div id="thumb" class="thumb">
-            <div class="part1"></div>
-            <div class="part2"></div>
-            <div class="part3"></div>
-        </div>
+        <div id="testButton"></div>
+        <div id="testThumb"></div>
     </div>
-    <div id="a"></div>
     <script type="text/javascript">
-        SystemJS.import('/js/com.js').then(function(m) {
-            console.log(m);
-            var a = new m.default();
-            a.init($('#a'));
-        });
+        (function($) {
+            SystemJS.import('/js/com.js').then(function(m) {
+                $.fn.praiseButton = function(num) {
+                    var btn = new m.PraiseButton($(this), num);
+                    btn.initPriaseButton();
+                }
+                $.fn.thumb = function(num) {
+                    var btn = new m.Thumb($(this), num);
+                    btn.initThumb();
+                }
+                $('#testButton').praiseButton();
+                $('#testThumb').thumb();
+            });
+        })(jQuery);
     </script>
 </body>
 

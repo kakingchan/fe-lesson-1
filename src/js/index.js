@@ -2,16 +2,19 @@
 
 export class PraiseButton {
     //构造函数
-    constructor(start) {
+    constructor(selector, start = 0) {
             this.count = start;
+            this.selector = selector;
         }
         //记录点赞次数
     praiseCount(count) {
-            return typeof count !== 'Number' ? NaN : ++count;
+            // console.log(typeof count);
+            return typeof count !== 'number' ? NaN : ++count;
         }
         //点赞事件
-    clickPriaseButton(selector, clicker) {
-            selector.append('<span class="praise-button-num">+1</span>');
+    clickPriaseButton(clicker) {
+            this.count = this.praiseCount(this.count);
+            this.selector.append('<span class="praise-button-num">+1</span>');
             let numSpan = $('.praise-button-num');
             let left = clicker.offset().left + clicker.width() / 2;
             let top = clicker.offset().top - clicker.height();
@@ -31,19 +34,34 @@ export class PraiseButton {
             }, 600, function() {
                 numSpan.remove();
             });
-
         }
         //初始化dom
-    init(selector) {
-        selector.append('<button class="praise-button">点赞</button>');
-        let clicker = $('.praise-button');
-        selector.click(this.clickPriaseButton.bind(this, selector, clicker));
+    initPriaseButton() {
+        this.selector.append('<button class="praise-button">点赞</button>');
+        this.selector.click(this.clickPriaseButton.bind(this, $('.praise-button')));
     }
 }
 
-export class Thumb extend PraiseButton {
-    constructor(start) {
-        super(start);
+export class Thumb extends PraiseButton {
+    constructor(selector, start = 0) {
+        super(selector, start);
     }
-
+    initThumb() {
+        this.selector.append('<div class="praise-button-thumb">' +
+            '<div class="hand"></div>' +
+            '<div class="finger-thumb"></div>' +
+            '<div class="finger-group-1"></div>' +
+            '<div class="finger-group-2"></div>' +
+            '</div>');
+        this.selector.click(this.clickThumb.bind(this, $('.praise-button-thumb')));
+    }
+    clickThumb(clicker) {
+        super.clickPriaseButton(clicker);
+        console.log(this.count);
+        if (this.count >= 10) {
+            // this.selector.unbind('click');
+            clicker.addClass('disabled');
+            console.log('it has already praised 10 times');
+        }
+    }
 }
