@@ -1,19 +1,21 @@
 "use strict";
 
+
+//+1
+export const praiseCount = function(count) {
+    return typeof count !== 'number' ? NaN : ++count;
+}
+
 export class PraiseButton {
     //构造函数
     constructor(selector, start = 0) {
-            this.count = start;
-            this.selector = selector;
-        }
-        //记录点赞次数
-    praiseCount(count) {
-            // console.log(typeof count);
-            return typeof count !== 'number' ? NaN : ++count;
-        }
-        //点赞事件
+        this.count = start;
+        this.selector = selector;
+    }
+
+    //点赞事件
     clickPriaseButton(clicker) {
-            this.count = this.praiseCount(this.count);
+            this.count = praiseCount(this.count);
             this.selector.append('<span class="praise-button-num">+1</span>');
             let numSpan = $('.praise-button-num');
             let left = clicker.offset().left + clicker.width() / 2;
@@ -59,7 +61,7 @@ export class Thumb extends PraiseButton {
         super.clickPriaseButton(clicker);
         console.log(this.count);
         if (this.count >= 10) {
-            // this.selector.unbind('click');
+            this.selector.unbind('click');
             clicker.addClass('disabled');
             console.log('it has already praised 10 times');
         }

@@ -1,28 +1,37 @@
 {
-  "name": "fe-lesson-1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kakingchan/fe-lesson-1.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kakingchan/fe-lesson-1/issues"
-  },
-  "homepage": "https://github.com/kakingchan/fe-lesson-1#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1"
-  },
-  "dependencies": {
-    "systemjs": "^0.20.18"
-  }
+    "name": "fe-lesson-1",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "./node_modules/.bin/babel src/js -d src/lib"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kakingchan/fe-lesson-1.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/kakingchan/fe-lesson-1/issues"
+    },
+    "homepage": "https://github.com/kakingchan/fe-lesson-1#readme",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-es2015": "^6.24.1",
+        "jasmine": "^2.7.0",
+        "karma": "^1.7.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-cli": "^1.0.1",
+        "karma-coverage": "^1.1.1",
+        "karma-jasmine": "^1.1.0",
+        "karma-phantomjs-launcher": "^1.0.4"
+    },
+    "dependencies": {
+        "systemjs": "^0.20.18"
+    }
 }

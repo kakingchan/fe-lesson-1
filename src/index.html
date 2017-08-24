@@ -8,9 +8,9 @@
     <title>homework1</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/thumb.css">
-    <script src="assets/jquery.js"></script>
-    <script src="assets/system.js"></script>
-    <script src="js/com.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/system.js"></script>
+    <script src="lib/praise.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
     </div>
     <script type="text/javascript">
         (function($) {
-            SystemJS.import('/js/com.js').then(function(m) {
+            SystemJS.import('/lib/praise.js').then(function(m) {
                 $.fn.praiseButton = function(num) {
                     var btn = new m.PraiseButton($(this), num);
                     btn.initPriaseButton();
