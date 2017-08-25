@@ -16,14 +16,14 @@ export class PraiseButton {
     //点赞事件
     clickPriaseButton(clicker) {
             this.count = praiseCount(this.count);
-            this.selector.append('<span class="praise-button-num">+1</span>');
+            clicker.append('<span class="praise-button-num">+1</span>');
             let numSpan = $('.praise-button-num');
             let left = clicker.offset().left + clicker.width() / 2;
             let top = clicker.offset().top - clicker.height();
             numSpan.css({
                 'position': 'absolute',
-                'left': left + 'px',
-                'top': top + 'px',
+                'left': clicker.width() / 2 + 'px',
+                'top': '-14px',
                 'z-index': 9999,
                 'font-size': '14px',
                 'line-height': '16px',
@@ -32,15 +32,15 @@ export class PraiseButton {
             numSpan.animate({
                 'font-size': '16px',
                 'opacity': '0',
-                'top': top - 16 + 'px',
+                'top': '-30px',
             }, 600, function() {
                 numSpan.remove();
             });
         }
         //初始化dom
     initPriaseButton() {
-        this.selector.append('<button class="praise-button">点赞</button>');
-        this.selector.click(this.clickPriaseButton.bind(this, $('.praise-button')));
+        this.selector.append('<button class="praise-button" style="width:100%">点赞</button>');
+        this.selector.click(this.clickPriaseButton.bind(this, $(this.selector.selector + '>.praise-button')));
     }
 }
 
@@ -49,13 +49,14 @@ export class Thumb extends PraiseButton {
         super(selector, start);
     }
     initThumb() {
+        console.log(this.selector);
         this.selector.append('<div class="praise-button-thumb">' +
             '<div class="hand"></div>' +
             '<div class="finger-thumb"></div>' +
             '<div class="finger-group-1"></div>' +
             '<div class="finger-group-2"></div>' +
             '</div>');
-        this.selector.click(this.clickThumb.bind(this, $('.praise-button-thumb')));
+        this.selector.click(this.clickThumb.bind(this, $(this.selector.selector + '>.praise-button-thumb')));
     }
     clickThumb(clicker) {
         super.clickPriaseButton(clicker);
