@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "./node_modules/.bin/karma start",
         "build": "./node_modules/.bin/babel src/js -d src/lib"
     },
     "repository": {
@@ -32,6 +32,8 @@
         "karma-phantomjs-launcher": "^1.0.4"
     },
     "dependencies": {
-        "systemjs": "^0.20.18"
+        "selenium-webdriver": "^3.5.0",
+        "systemjs": "^0.20.18",
+        "webdriverio": "^4.8.0"
     }
 }
