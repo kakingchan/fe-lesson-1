@@ -10,7 +10,7 @@
     - unit
     - e2e
 
-项目运行时所需js文件在scr/lib中
+项目运行时所需js文件在src/lib中
 
 ## es6编译
 ```
